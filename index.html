@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111a2e">
+  <meta name="description" content="Portafolio de Adriana Hernández Severich, estudiante de Ingeniería de Software enfocada en desarrollo backend, APIs y bases de datos.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Adriana Hernández Severich | Backend Developer">
+  <meta property="og:description" content="APIs, bases de datos y arquitectura de software. Conoce mis proyectos y experiencia.">
+  <title>Adriana Hernández Severich | Backend Developer</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #111a2e;
+      --ink-soft: #3d485a;
+      --paper: #f6f7f2;
+      --white: #fff;
+      --line: #d9dedb;
+      --blue: #455de8;
+      --lime: #c8f27a;
+      --muted: #e9edec;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; border-radius: 3px; }
+    .skip { position: absolute; left: 1rem; top: -5rem; z-index: 100; padding: .7rem 1rem; background: var(--lime); }
+    .skip:focus { top: 1rem; }
+    .container { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+    .site-header { border-bottom: 1px solid var(--line); background: rgba(246,247,242,.93); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 20; }
+    .nav { min-height: 75px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { display: inline-flex; align-items: center; gap: .8rem; font-weight: 800; letter-spacing: -.04em; font-size: .98rem; }
+    .brand-mark { width: 35px; height: 35px; display: grid; place-items: center; background: var(--ink); color: var(--lime); font-size: .85rem; letter-spacing: -.08em; border-radius: 8px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.35rem); font-size: .85rem; font-weight: 600; }
+    .nav-links a:not(.nav-contact) { transition: color .2s; }
+    .nav-links a:hover:not(.nav-contact) { color: var(--blue); }
+    .nav-contact { background: var(--ink); color: white; padding: .78rem 1.08rem; border-radius: 5px; transition: background .2s, transform .2s; }
+    .nav-contact:hover { background: var(--blue); transform: translateY(-2px); }
+    .hero { padding: clamp(5rem, 10vw, 9rem) 0 7rem; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.07fr) minmax(340px, .93fr); align-items: center; gap: clamp(3rem, 6vw, 7rem); }
+    .eyebrow { display: inline-flex; align-items: center; gap: .7rem; text-transform: uppercase; letter-spacing: .17em; font-size: .72rem; font-weight: 800; color: var(--blue); }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 720px; font-size: clamp(3.5rem, 6.9vw, 6.7rem); line-height: .98; letter-spacing: -.075em; margin: 1.5rem 0 1.7rem; }
+    h1 em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; color: var(--blue); letter-spacing: -.075em; }
+    .hero-copy { max-width: 575px; color: var(--ink-soft); line-height: 1.75; font-size: clamp(1.03rem, 1.55vw, 1.17rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.05rem; margin-top: 2.2rem; }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: .9rem; min-height: 53px; padding: .85rem 1.28rem; border: 1px solid var(--ink); border-radius: 5px; font-size: .88rem; font-weight: 750; transition: background .2s, color .2s, transform .2s; }
+    .button:hover { transform: translateY(-3px); }
+    .button-primary { background: var(--ink); color: #fff; }
+    .button-primary:hover { background: var(--blue); border-color: var(--blue); }
+    .button-secondary:hover { background: var(--lime); }
+    .button svg, .text-link svg { width: 17px; height: 17px; }
+    .hero-note { margin: 2.25rem 0 0; font-size: .8rem; font-weight: 650; color: #687384; display: flex; align-items: center; gap: .55rem; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #5aaf70; box-shadow: 0 0 0 4px #d8ebdb; }
+    .visual-wrap { position: relative; padding: 2rem 0 1.8rem 1.4rem; }
+    .visual-wrap::before { content: ""; position: absolute; inset: 0 1.8rem 2.4rem 0; background: var(--lime); border-radius: 11px; transform: rotate(-6deg); }
+    .visual-card { position: relative; min-height: 525px; background: var(--ink); border-radius: 11px; overflow: hidden; box-shadow: 0 28px 65px #14203a2b; color: white; }
+    .visual-card::after { content: ""; position: absolute; inset: 0; opacity: .17; background-image: linear-gradient(#fff2 1px, transparent 1px), linear-gradient(90deg, #fff2 1px, transparent 1px); background-size: 40px 40px; mask-image: linear-gradient(to bottom, transparent, black); pointer-events: none; }
+    .visual-top { display: flex; justify-content: space-between; align-items: center; padding: 1.45rem 1.55rem; border-bottom: 1px solid #ffffff26; font-size: .67rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #b7c2dc; }
+    .window-dots { display: flex; gap: 5px; }
+    .window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #7282a1; }
+    .visual-inner { position: relative; z-index: 1; padding: 3.8rem 2rem 3rem; }
+    .visual-kicker { color: var(--lime); text-transform: uppercase; font-weight: 800; letter-spacing: .2em; font-size: .68rem; }
+    .visual-title { font-size: clamp(2.25rem, 3vw, 3.15rem); line-height: 1.04; letter-spacing: -.065em; margin: 1.1rem 0 2rem; max-width: 340px; }
+    .flow { display: grid; gap: 1rem; margin-top: 3rem; }
+    .flow-row { display: flex; align-items: center; gap: .8rem; }
+    .flow-node { display: flex; align-items: center; justify-content: space-between; padding: .85rem 1rem; border: 1px solid #7181aa85; background: #23304c; border-radius: 5px; width: 100%; font-size: .82rem; font-weight: 680; }
+    .flow-node span { color: var(--lime); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .7rem; }
+    .flow-row:nth-child(2) { padding-left: 2.1rem; }
+    .flow-row:nth-child(3) { padding-left: 4.2rem; }
+    .flow-line { width: 15px; height: 1px; background: var(--lime); flex: none; }
+    .visual-footer { border-top: 1px solid #ffffff26; padding: 1.4rem 1.55rem; position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-between; color: #b7c2dc; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; z-index: 2; }
+    .proof { border-block: 1px solid var(--line); background: #f0f2ed; }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .proof-item { padding: 1.75rem 1.5rem; border-right: 1px solid var(--line); }
+    .proof-item:first-child { padding-left: 0; }
+    .proof-item:last-child { border-right: 0; }
+    .proof-number { display: block; font-size: 1.7rem; letter-spacing: -.055em; font-weight: 850; margin-bottom: .3rem; }
+    .proof-label { color: var(--ink-soft); font-size: .78rem; line-height: 1.5; }
+    section.content-section { padding: clamp(5.2rem, 9vw, 8rem) 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; }
+    .section-head h2 { font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: 1.04; letter-spacing: -.065em; margin: 1.1rem 0 0; max-width: 730px; }
+    .section-head p { max-width: 310px; color: var(--ink-soft); line-height: 1.65; font-size: .92rem; margin-bottom: .3rem; }
+    .projects { background: #fff; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .project-card { min-height: 380px; padding: clamp(1.7rem, 3vw, 2.55rem); background: var(--paper); border: 1px solid var(--line); border-radius: 8px; display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 22px 48px #111a2e0e; }
+    .project-card.featured { background: var(--ink); border-color: var(--ink); color: white; }
+    .card-top { display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
+    .card-index { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .77rem; color: var(--blue); font-weight: 750; }
+    .featured .card-index { color: var(--lime); }
+    .card-type { border: 1px solid var(--line); border-radius: 99px; padding: .45rem .7rem; font-size: .68rem; font-weight: 750; text-transform: uppercase; letter-spacing: .07em; white-space: nowrap; }
+    .featured .card-type { border-color: #8190ad; color: var(--lime); }
+    .project-card h3 { margin: 3.4rem 0 .85rem; font-size: clamp(1.7rem, 2.5vw, 2.55rem); line-height: 1.1; letter-spacing: -.055em; }
+    .project-card p { color: var(--ink-soft); line-height: 1.67; font-size: .94rem; max-width: 470px; margin-bottom: 1.8rem; }
+    .featured p { color: #c6d0e3; }
+    .tags { margin-top: auto; display: flex; flex-wrap: wrap; gap: .45rem; }
+    .tags span { background: #e9ece8; border-radius: 3px; padding: .44rem .6rem; font-size: .7rem; font-weight: 700; }
+    .featured .tags span { color: var(--lime); background: #263552; }
+    .capabilities-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 7rem); }
+    .capabilities-intro h2 { font-size: clamp(2.7rem, 5vw, 4.8rem); line-height: 1.03; letter-spacing: -.065em; margin: 1rem 0 1.3rem; }
+    .capabilities-intro p { color: var(--ink-soft); line-height: 1.75; max-width: 390px; }
+    .skills-list { border-top: 1px solid var(--line); }
+    .skill-row { display: grid; grid-template-columns: 55px 1fr; gap: 1rem; border-bottom: 1px solid var(--line); padding: 1.7rem 0; }
+    .skill-row .num { color: var(--blue); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .75rem; padding-top: .2rem; }
+    .skill-row h3 { font-size: 1.22rem; letter-spacing: -.04em; margin: 0 0 .4rem; }
+    .skill-row p { color: var(--ink-soft); line-height: 1.58; font-size: .9rem; margin: 0; }
+    .journey { background: #ebeeea; }
+    .journey-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(3rem, 9vw, 9rem); }
+    .journey h2 { font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: 1.04; letter-spacing: -.065em; margin: 1rem 0 1.5rem; }
+    .journey-lead { max-width: 390px; color: var(--ink-soft); line-height: 1.7; }
+    .timeline { border-left: 1px solid #a5aeae; padding-left: 1.8rem; }
+    .timeline-item { position: relative; padding-bottom: 2.3rem; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before { content: ""; width: 9px; height: 9px; background: var(--blue); border: 3px solid #ebeeea; outline: 1px solid var(--blue); border-radius: 50%; position: absolute; left: calc(-1.8rem - 5px); top: .12rem; }
+    .timeline-time { color: var(--blue); text-transform: uppercase; font-weight: 850; font-size: .69rem; letter-spacing: .14em; }
+    .timeline h3 { margin: .45rem 0 .4rem; font-size: 1.18rem; letter-spacing: -.04em; }
+    .timeline p { color: var(--ink-soft); font-size: .9rem; line-height: 1.63; margin-bottom: 0; }
+    .contact { background: var(--ink); color: white; position: relative; overflow: hidden; }
+    .contact::after { content: "AH"; position: absolute; right: -2rem; bottom: -9rem; font-size: clamp(19rem, 40vw, 37rem); font-weight: 900; line-height: 1; letter-spacing: -.13em; color: #ffffff07; pointer-events: none; }
+    .contact-inner { position: relative; z-index: 1; max-width: 930px; padding: clamp(5.5rem, 10vw, 9rem) 0; }
+    .contact .eyebrow { color: var(--lime); }
+    .contact h2 { font-size: clamp(3.3rem, 7vw, 6.7rem); line-height: 1; letter-spacing: -.075em; margin: 1.4rem 0 1.5rem; }
+    .contact h2 em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; color: var(--lime); }
+    .contact p { max-width: 590px; color: #c4cde0; line-height: 1.7; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem; }
+    .contact .button-primary { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+    .contact .button-primary:hover { background: white; border-color: white; }
+    .contact .button-secondary { border-color: #7f8ca7; color: white; }
+    .contact .button-secondary:hover { background: #263552; }
+    footer { background: #0c1425; color: #b1bcd1; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-block: 1.8rem; font-size: .74rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a:hover { color: var(--lime); }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 5rem; }
+      .visual-wrap { width: min(560px, 100%); margin-inline: auto; }
+      .visual-card { min-height: 460px; }
+      .capabilities-grid, .journey-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .section-head { display: block; }
+      .section-head p { max-width: 600px; margin-top: 1.3rem; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 32px, 1180px); }
+      .nav { min-height: 68px; }
+      .brand { font-size: .87rem; }
+      .nav-links { gap: .7rem; }
+      .nav-links a:not(.nav-contact) { display: none; }
+      .nav-contact { padding: .65rem .77rem; font-size: .77rem; }
+      .hero { padding: 4.5rem 0 4.7rem; }
+      h1 { font-size: clamp(3.3rem, 12.5vw, 5rem); }
+      .visual-wrap { padding: 1.3rem 0 1rem 1rem; }
+      .visual-card { min-height: 430px; }
+      .visual-inner { padding: 2.8rem 1.5rem; }
+      .visual-title { font-size: 2.2rem; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-item, .proof-item:first-child { padding: 1.3rem 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .proof-item:last-child { border-bottom: 0; }
+      .proof-number { font-size: 1.4rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 345px; }
+      .project-card h3 { margin-top: 2.5rem; }
+      .contact h2 { font-size: clamp(3.2rem, 12vw, 5rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Ir al contenido</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Adriana Hernández Severich, inicio"><span class="brand-mark" aria-hidden="true">AH</span><span>Adriana Hernández</span></a>
+      <div class="nav-links">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a class="nav-contact" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="pixel-field" aria-hidden="true">
+        <span style="--x:4%;--s:8px;--delay:-2s;--duration:13s"></span>
+        <span style="--x:11%;--s:5px;--delay:-7s;--duration:17s"></span>
+        <span style="--x:19%;--s:11px;--delay:-12s;--duration:19s"></span>
+        <span style="--x:27%;--s:6px;--delay:-4s;--duration:15s"></span>
+        <span style="--x:34%;--s:9px;--delay:-9s;--duration:18s"></span>
+        <span style="--x:43%;--s:5px;--delay:-1s;--duration:14s"></span>
+        <span style="--x:51%;--s:7px;--delay:-11s;--duration:20s"></span>
+        <span style="--x:58%;--s:12px;--delay:-6s;--duration:16s"></span>
+        <span style="--x:66%;--s:5px;--delay:-13s;--duration:21s"></span>
+        <span style="--x:73%;--s:8px;--delay:-3s;--duration:15s"></span>
+        <span style="--x:79%;--s:6px;--delay:-10s;--duration:18s"></span>
+        <span style="--x:87%;--s:10px;--delay:-5s;--duration:17s"></span>
+        <span style="--x:94%;--s:5px;--delay:-14s;--duration:22s"></span>
+      </div>
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Hola, soy Adriana</span>
+          <h1 id="hero-title">Construyo el <em>backend</em> que hace posible cada idea.</h1>
+          <p class="hero-copy">Soy estudiante de Ingeniería de Software en Santa Cruz de la Sierra. Desarrollo APIs, diseño bases de datos y cuido la calidad del software para convertir problemas complejos en soluciones claras.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#proyectos">Explorar proyectos <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="button button-secondary" href="mailto:adriana2007hs@gmail.com">Escríbeme <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hero-note"><span class="status-dot" aria-hidden="true"></span> Interesada en oportunidades de Backend Developer Intern</p>
+        </div>
+        <div class="portrait-wrap">
+          <div class="portrait-frame">
+            <img src="adriana-portrait.jpeg" alt="Retrato de Adriana Hernández Severich" width="968" height="1296" fetchpriority="high">
+            <div class="portrait-grid" aria-hidden="true"></div>
+            <div class="portrait-caption"><span>Adriana Hernández Severich</span><span>Backend · Datos · QA</span></div>
+          </div>
+          <div class="portrait-chip" aria-hidden="true"><span class="chip-square"></span> Disponible para crear y aprender</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="proof" aria-label="Datos destacados">
+      <div class="container proof-grid">
+        <div class="proof-item"><strong class="proof-number">1.er lugar</strong><span class="proof-label">Reto Zavu · Cursor Buildathon Bolivia 2026</span></div>
+        <div class="proof-item"><strong class="proof-number">4.º semestre</strong><span class="proof-label">Ingeniería de Software · UCB</span></div>
+        <div class="proof-item"><strong class="proof-number">Backend + QA</strong><span class="proof-label">APIs, arquitectura y pruebas de software</span></div>
+      </div>
+    </div>
+
+    <section class="content-section projects" id="proyectos" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">01 / Trabajo seleccionado</span><h2 id="projects-title">Proyectos que muestran cómo trabajo.</h2></div>
+          <p>Del diseño de APIs a la consistencia de datos: distintos retos, una misma atención a la lógica y al detalle.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="card-top"><span class="card-index">01 / AGO 2026</span><span class="card-type">Proyecto premiado</span></div>
+            <h3>TrámiteFácil</h3>
+            <p>Agente de voz con IA que guía a las personas en trámites gubernamentales. Desarrollé las APIs y la arquitectura backend, y lideré las pruebas de los endpoints y del flujo de datos durante el Buildathon.</p>
+            <div class="tags"><span>Backend</span><span>APIs REST</span><span>QA</span><span>IA aplicada</span></div>
+          </article>
+          <article class="project-card">
+            <div class="card-top"><span class="card-index">02 / 2026</span><span class="card-type">Full stack</span></div>
+            <h3>Gestión de extintores</h3>
+            <p>Sistema para controlar y registrar inventario. Construí el backend y la base de datos con C# y SQL Server, además de una interfaz que consume las APIs del servidor.</p>
+            <div class="tags"><span>C#</span><span>SQL Server</span><span>HTML</span><span>Angular básico</span></div>
+          </article>
+          <article class="project-card">
+            <div class="card-top"><span class="card-index">03 / MAY 2026</span><span class="card-type">Arquitectura distribuida</span></div>
+            <h3>ShopGlobal Retail Corp</h3>
+            <p>Red de bases de datos multinodo que simula servidores en tres países. Configuré permisos, sincronización y consultas distribuidas entre SQL Server, MySQL y PostgreSQL mediante ZeroTier.</p>
+            <div class="tags"><span>SQL Server</span><span>MySQL</span><span>PostgreSQL</span><span>ZeroTier</span></div>
+          </article>
+          <article class="project-card">
+            <div class="card-top"><span class="card-index">04 / 2025–2026</span><span class="card-type">Software y algoritmos</span></div>
+            <h3>Del motor al producto</h3>
+            <p>Programé el RPG «El Explorador de las Sombras» en C++ con generación procedimental, y «Tienda Consola» en C# aplicando programación orientada a objetos y principios SOLID.</p>
+            <div class="tags"><span>C++</span><span>C#</span><span>POO</span><span>SOLID</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="habilidades" aria-labelledby="skills-title">
+      <div class="container capabilities-grid">
+        <div class="capabilities-intro"><span class="eyebrow">02 / Lo que aporto</span><h2 id="skills-title">Una base técnica, muchas formas de resolver.</h2><p>Me interesa especialmente la parte invisible de un producto: la estructura que permite que los datos, las reglas y las personas trabajen bien juntos.</p></div>
+        <div class="skills-list">
+          <div class="skill-row"><span class="num">01</span><div><h3>Backend y APIs</h3><p>C#, Java, Python y diseño y desarrollo de APIs REST.</p></div></div>
+          <div class="skill-row"><span class="num">02</span><div><h3>Datos y arquitectura</h3><p>SQL Server, MySQL, PostgreSQL y bases de datos distribuidas.</p></div></div>
+          <div class="skill-row"><span class="num">03</span><div><h3>Calidad y colaboración</h3><p>Pruebas de software, revisión de flujos de datos, Git y GitHub.</p></div></div>
+          <div class="skill-row"><span class="num">04</span><div><h3>Más herramientas</h3><p>C++, Delphi, HTML, Angular básico y ZeroTier.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section journey" id="trayectoria" aria-labelledby="journey-title">
+      <div class="container journey-grid">
+        <div><span class="eyebrow">03 / En crecimiento</span><h2 id="journey-title">Aprender, construir y compartir.</h2><p class="journey-lead">Mi formación combina proyectos de software, investigación académica y participación en comunidades tecnológicas.</p></div>
+        <div class="timeline">
+          <div class="timeline-item"><span class="timeline-time">2025 — 2029, previsto</span><h3>Ingeniería de Software · UCB</h3><p>Actualmente en 4.º semestre en la Universidad Católica Boliviana «San Pablo», Santa Cruz de la Sierra.</p></div>
+          <div class="timeline-item"><span class="timeline-time">2026</span><h3>Investigación sobre estudiantes y LLMs</h3><p>Coautora de un estudio sobre la interacción de estudiantes con modelos de lenguaje.</p></div>
+          <div class="timeline-item"><span class="timeline-time">Participación actual</span><h3>Voluntaria · AWS Community Day</h3><p>Participo como voluntaria en AWS Community Day y colaboro con la comunidad tecnológica.</p></div>
+          <div class="timeline-item"><span class="timeline-time">Membresía actual</span><h3>Sociedad Científica de Software</h3><p>Formo parte de la Sociedad Científica de Software.</p></div>
+          <div class="timeline-item"><span class="timeline-time">Formación complementaria</span><h3>Seguridad e inteligencia artificial</h3><p>Hacking Ético de Cisco NetAcad, AWS AI Practitioner Challenge y fundamentos de ciberseguridad de Google.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact-inner"><span class="eyebrow">04 / Contacto</span><h2 id="contact-title">Construyamos<br><em>algo útil.</em></h2><p>Estoy interesada en prácticas y oportunidades para aportar en equipos de desarrollo backend. Si mi trabajo encaja con lo que estás construyendo, conversemos.</p><div class="contact-actions"><a class="button button-primary" href="mailto:adriana2007hs@gmail.com?subject=Oportunidad%20Backend%20Developer">Enviar un correo <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="https://www.linkedin.com/in/adriana-hern%C3%A1ndez-severich-447727387/" target="_blank" rel="noopener noreferrer">Conectar en LinkedIn <span aria-hidden="true">↗</span></a></div></div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><span>© 2026 Adriana Hernández Severich · Santa Cruz de la Sierra, Bolivia</span><div class="footer-links"><a href="https://github.com/Adriana-HS" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://github.com/AHS-Hernandez" target="_blank" rel="noopener noreferrer">GitHub proyectos</a><a href="https://www.linkedin.com/in/adriana-hern%C3%A1ndez-severich-447727387/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer>
+</body>
+</html>
